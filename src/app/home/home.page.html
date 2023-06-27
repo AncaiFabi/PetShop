@@ -1,20 +1,48 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      PETSHOP
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <div>
+    <ion-row style="margin-top: 30px">
+      <ion-col>
+        <ion-item class="borda" line="none">
+          <ion-label position="floating">Nome </ion-label>
+          <ion-input
+            type="text"
+            expand="block"
+            style="color: #222"
+            placeholder="como se chama seu pet?"
+            maxlength="8"
+            [(ngModel)] = "cachorro.nome"
+          ></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+    <ion-row>
+      <ion-col>
+        <ion-item class="borda" line="none">
+          <ion-label position="floating">Idade </ion-label>
+          <ion-input
+            type="text"
+            expand="block"
+            style="color: #222"
+            placeholder="quantos anos tem seu pet?"
+            [(ngModel)] = "cachorro.idade"
+          ></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+    <div class="espaco">
+      <img id="ima" alt="pe" src="../../assets/icon/pe.jpg" />
+      
+          <ion-button
+            id="botao"
+            size="large"
+            style="color: black"
+            shape="block"
+            fill="clear"
+            >{{LabelBotao}}</ion-button
+          >
+        
+    </div>
   </div>
 </ion-content>
