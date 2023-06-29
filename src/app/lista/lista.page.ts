@@ -8,6 +8,9 @@ import { ListadogsService } from '../services/listadogs.service';
   styleUrls: ['./lista.page.scss'],
 })
 export class ListaPage implements OnInit {
+  public url = 'https://dog.ceo/api/breeds/image/random';
+  public imagem = '';
+  public result: any = {};
 
   cachorro = { nome: '', idade: '',};
 
@@ -26,10 +29,13 @@ export class ListaPage implements OnInit {
     this.carregadados();
   }
 
+ 
+
+
   async voltar() {
     const voltando = await this.alerta.create({
       header: 'ATENÇAO!',
-      message: 'Deseja adicionar um novo endereço?',
+      message: 'Deseja adicionar um novo cãozinho?',
       buttons: [
         {
           text: 'Não',
@@ -51,8 +57,17 @@ export class ListaPage implements OnInit {
   carregadados(){
     if(this.servicos.listar()){
       this.dogs = this.servicos.listar()!;
-      console.log(this.cachorro);
+     
+
+      if(this.dogs.length == 0){
+        this.voltar();
+      }
     }
+  }
+
+  deletar(nome: string){
+    this.servicos.deletar(nome)
+    this.carregadados();
   }
   
 

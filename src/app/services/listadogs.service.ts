@@ -14,11 +14,12 @@ export class ListadogsService {
 
   constructor(private http: HttpClient) { }
 
-  salvadogs( nomes: string, idades: string ){
+   async salvadogs( nomes: string, idades: string ){
     const dados = {
       nome : nomes,
-      idade : idades
-    }
+      idade : idades,
+      imagem : await this.gerar()
+    };
 
     const values = localStorage.getItem(this.key)
 
@@ -42,6 +43,13 @@ export class ListadogsService {
 
     const colecao: any[] = JSON.parse(values);
     return colecao;
+  }
+
+  deletar(params: any){
+    const values = this.listar();
+    const result = values?.filter((cachorro) => cachorro.nome !== params);
+
+    localStorage.setItem(this.key, JSON.stringify(result));
   }
 
   gerar(){

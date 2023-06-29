@@ -26,6 +26,10 @@ export class HomePage {
     public mensagem: ToastController,
     public servico: ListadogsService) {}
 
+    ionViewDidEnter() {
+      this.limpaDados();
+    }
+
     cadastrar(){
       if(this.cachorro.nome == '' || this.cachorro.idade == ''){
       this.exibeToast('Preencha os dados do seu cãozinho','danger')
@@ -43,6 +47,12 @@ export class HomePage {
         );
 
         this.nav.navigateRoot('lista')
+      }
+
+      limpaDados(){
+        this.LabelBotao = 'Cadastrar';
+        this.cachorro.nome = '';
+        this.cachorro.idade = '';
       }
 
 
