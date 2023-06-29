@@ -1,0 +1,20 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Cadastro</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="divPrincipal">
+    <ion-row>
+      <ion-col>
+        <ion-button shape="block" (click)="gerar()">GERAR IMAGEM</ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <img src="{{imagem}}" width="200" height="200" />
+      </ion-col>
+    </ion-row>
+  </div>
+</ion-content>
